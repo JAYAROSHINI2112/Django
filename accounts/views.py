@@ -40,7 +40,7 @@ def register(request):
              user = User.objects.create_user(username=username,password=password1,email=email,first_name=first_name,last_name=last_name)
              user.save();
              print('user created')
-             return redirect('login')
+             return redirect('login ')
      else:
        messages.info(request,'Password is not matching....')
        return redirect('register')
@@ -48,3 +48,7 @@ def register(request):
      return redirect('/')
   else: 
     return render(request,'register.html')
+
+def logout(request):
+  auth.logout(request)
+  return redirect('/')

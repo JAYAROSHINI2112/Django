@@ -80,10 +80,16 @@
                                  <ul class="menu-area-main">
                                     <li class="active"> <a href="index.html">Home</a> </li>
                                     <li> <a href="#service">Service</a> </li>
+                                    {% if user.is_authenticated %}
+                                       <li style="color: black;">Hello,{{user.first_name}}</li>
+                                       <li> <a href="/accounts/logout">Logout{{user.first_name}}</a> </li>
+                                    {% else %}
                                     <li> <a href="/accounts/register">Register</a> </li>
                                     <li> <a href="/accounts/login">Login</a> </li>
-                                    <li> <a href="#review">Review</a> </li>
-                                    <li> <a href="#request">Contact us</a> </li>
+                                    {% endif %}
+                                  
+                                      <li> <a href="#review">Review</a> </li>
+                                      <li> <a href="#request">Contact us</a> </li>
                                  </ul>
                               </nav>
                            </div>
